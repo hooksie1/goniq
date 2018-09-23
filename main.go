@@ -25,7 +25,6 @@ func readLines(p string) []string {
 
 // uniq takes a list of items only shows the unique items.
 func uniq(s []string) []string {
-	//var list []string
 	lstmap := map[string]bool{}
 	result := []string{}
 
