@@ -1,0 +1,7 @@
+= Goniq
+
+Goniq is a very simple cross-platform program to remove duplicate lines.
+
+Goniq can take inputs from stdin or a file.
+
+To use a file, just use the filename as an argument.
