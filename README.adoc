@@ -14,5 +14,3 @@ Examples:
 
 
 Note: I suck at development. This works, but most likely sucks. Feel free to make it better.
-
-Note: This is mirrored on Github from GitLab. Any issues should be opened on GitLab.com.
