@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"time"
-	"github.com/briandowns/spinner"
 )
 
 // readLines takes a file name and returns the contents as a byte slice.
@@ -29,6 +27,7 @@ func readLines(p string) []string {
 func uniq(s []string) []string {
 	lstmap := map[string]bool{}
 	result := []string{}
+
 	for v := range s {
 		if lstmap[s[v]] == true {
 
@@ -41,10 +40,6 @@ func uniq(s []string) []string {
 }
 
 func main() {
-s := spinner.New(spinner.CharSets[11], 100*time.Millisecond)
-s.Prefix = "Sorting "
-s.Writer = os.Stderr
-s.Start()
 	if len(os.Args) > 1 {
 		file := os.Args[1]
 		lines := readLines(file)
