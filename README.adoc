@@ -7,6 +7,6 @@ Goniq can take inputs from stdin or a file.
 To use a file, just use the filename as an argument.
 
 
-
-
 Note: I suck at development. This works, but most likely sucks. Feel free to make it better.
+
+Note: This is mirrored on Github from GitLab. Any issues should be opened on GitLab.com.
