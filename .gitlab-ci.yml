@@ -1,10 +1,5 @@
 image: golang
 
-cache:
-  paths:
-    - /go/src/gitlab.com
-    - /go/src/github.com
-
 stages:
   - test
   - build
