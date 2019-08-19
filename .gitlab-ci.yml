@@ -34,3 +34,6 @@ build:
   stage: build
   script:
     - make
+  artifacts:
+    paths:
+      - goniq
