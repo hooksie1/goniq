@@ -1,0 +1,37 @@
+image: 
+  name: golang
+
+cache:
+  paths:
+    - /go/src/gitlab.com
+    - /go/src/github.com
+
+stages:
+  - test
+  - build
+
+before_script:
+  - mkdir -p /go/src/gitlab.com/hooksie1 /go/src/_/builds
+  - cp -R $CI_PROJECT_DIR /go/src/gitlab.com/hooksie1/goniq
+  - ln -s /go/src/gitlab.com/hooksie1 /go/src/_/builds/hooksie1
+  - make dep
+
+unit_tests:
+  stage: test
+  script: 
+    - make test
+
+code_coverage:
+  stage: test
+  script:
+    - make coverage
+
+lint_code:
+  stage: test
+  script:
+    make lint
+
+build:
+  stage: build
+  script:
+    - make
