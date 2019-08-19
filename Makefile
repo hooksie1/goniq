@@ -15,6 +15,7 @@ test: ## Run unittests
 
 coverage:
 	@go test -cover $(PKG)
+	@go test -coverprofile=cover.out && go tool cover -html=cover.out -o coverage.html
 
 dep: ## Get the dependencies
 	@go get -u golang.org/x/lint/golint

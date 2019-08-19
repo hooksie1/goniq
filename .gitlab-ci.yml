@@ -24,6 +24,9 @@ code_coverage:
   stage: test
   script:
     - make coverage
+  artifacts:
+    paths:
+      - coverage.html
 
 lint_code:
   stage: test
