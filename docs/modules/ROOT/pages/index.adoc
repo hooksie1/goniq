@@ -1,6 +1,6 @@
 = Overview
 
-Goniq is a very simple cross-platform program to remove duplicate lines.
+https://gitlab.com/hooksie1/goniq[Goniq^] is a very simple cross-platform program to remove duplicate lines.
 
 
 == Input Types
