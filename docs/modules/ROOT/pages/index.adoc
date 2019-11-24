@@ -1,4 +1,4 @@
-= Goniq
+= Overview
 
 Goniq is a very simple cross-platform program to remove duplicate lines.
 
