@@ -1,0 +1,5 @@
+name: goniq
+title: Goniq
+version: master
+nav:
+- modules/ROOT/nav.adoc

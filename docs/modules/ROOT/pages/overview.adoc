@@ -1,0 +1,17 @@
+= Goniq
+
+Goniq is a very simple cross-platform program to remove duplicate lines.
+
+Goniq can take inputs from stdin or a file and the inputs to *not* need to be sorted.
+
+To use a file, just use the filename as an argument.
+
+Examples:
+
+    echo "test thing test thing other" | goniq
+
+    goniq words.txt
+
+
+Note: I suck at development. This works, but most likely sucks. Feel free to make it better.
+
