@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"gitlab.com/hooksie1/goniq"
 )
 
 func main() {
@@ -20,7 +22,7 @@ func main() {
 			output = append(output, v)
 		}
 	}
-	list := goniq.uniq(output)
+	list := goniq.Uniq(output)
 	for _, v := range list {
 		fmt.Printf("%v \n", v)
 	}

@@ -12,8 +12,6 @@ func toBytes(r io.Reader) []byte {
 	return data.Bytes()
 }
 
-func toReader()
-
 // uniq takes a list of items only shows the unique items.
 func Uniq(r io.Reader) io.Reader {
 	bSlice := toBytes(r)
