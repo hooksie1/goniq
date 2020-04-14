@@ -26,8 +26,8 @@ func main() {
 	}
 
 	fileList := goniq.Uniq(file)
-
 	list := goniq.Uniq(strings.NewReader("test,test2,test3,test2"))
+
 	fmt.Println(list)
 	fmt.Println(fileList)
 
