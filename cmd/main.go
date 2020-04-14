@@ -3,21 +3,30 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
-
+	"flag"
+	
 	"gitlab.com/hooksie1/goniq"
 )
 
+var file string
+
+func init() {
+	flag.StringVar(&file, "file", "", "file to use")
+}
+
 func main() {
-	file, err := os.Open("test.txt")
-	if err != nil {
-		fmt.Println(err)
-	}
 
-	fileList := goniq.Uniq(file)
+	flag.Parse()
 
-	list := goniq.Uniq(strings.NewReader("test,test2,test3,test2"))
-	fmt.Println(list)
-	fmt.Println(fileList)
+		file, err := os.Open(file)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		list := goniq.Uniq(file)
+
+		for _, v := range list {
+			fmt.Printf("%v \n", v)
+		}
 
 }

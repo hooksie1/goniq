@@ -19,10 +19,9 @@ coverage:
 
 dep: ## Get the dependencies
 	@go get -u golang.org/x/lint/golint
-	@go get -v -d ./...
 
 build: dep ## Build the binary file
-	@go build -i -v $(PKG)
+	@go build -o goniq cmd/main.go
 
 clean: ## Remove previous build
 	git clean -fd
