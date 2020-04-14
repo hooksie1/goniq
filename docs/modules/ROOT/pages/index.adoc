@@ -1,18 +1,39 @@
 = Overview
 
-https://gitlab.com/hooksie1/goniq[Goniq^] is a very simple cross-platform program to remove duplicate lines.
+https://gitlab.com/hooksie1/goniq[Goniq^] is a very simple package to remove duplicates.
 
 
 == Input Types
-Goniq can take inputs from stdin or a file and the inputs to *not* need to be sorted.
-
-To use a file, just use the filename as an argument.
+Goniq takes inputs from an io.Reader and the inputs do *not* need to be sorted.
 
 == Examples
+[source, Go]
+----
+package main
 
-    echo "test thing test thing other" | goniq
+import (
+	"fmt"
+	"os"
+	"strings"
 
-    goniq words.txt
+	"gitlab.com/hooksie1/goniq"
+)
+
+func main() {
+	file, err := os.Open("test.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fileList := goniq.Uniq(file)
+
+	list := goniq.Uniq(strings.NewReader("test,test2,test3,test2"))
+	fmt.Println(list)
+	fmt.Println(fileList)
+
+}
+----
+
 
 NOTE: I suck at development. This works, but most likely sucks. Feel free to make it better.
 

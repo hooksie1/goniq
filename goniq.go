@@ -5,6 +5,7 @@ import (
 	"io"
 )
 
+// toBytes takes an io.Reader and converts it to a byte slice.
 func toBytes(r io.Reader) []byte {
 	data := new(bytes.Buffer)
 
@@ -12,20 +13,36 @@ func toBytes(r io.Reader) []byte {
 	return data.Bytes()
 }
 
-// uniq takes a list of items only shows the unique items.
-func Uniq(r io.Reader) io.Reader {
+// splitWords takes a byte slice and returns a slice of byte slices
+// separated by spaces, to be converted to a slice of strings.
+func splitWords(b []byte) [][]byte {
+
+	split := bytes.Split(b, []byte(","))
+
+	return split
+
+}
+
+// Uniq takes an io.Reader containing a list of space separated items,
+// and returns a slice of strings containing only the unique items.
+func Uniq(r io.Reader) []string {
 	bSlice := toBytes(r)
 
-	lstmap := map[byte]bool{}
-	result := []byte{}
+	lstmap := map[string]bool{}
+	result := []string{}
 
-	for v := range bSlice {
-		if lstmap[bSlice[v]] == true {
+	words := splitWords(bSlice)
+
+	for _, v := range words {
+		word := string(v)
+		if lstmap[word] == true {
 
 		} else {
-			lstmap[bSlice[v]] = true
-			result = append(result, bSlice[v])
+			lstmap[word] = true
+			result = append(result, string(v))
 		}
 	}
-	return bytes.NewReader(result)
+
+	return result
+
 }

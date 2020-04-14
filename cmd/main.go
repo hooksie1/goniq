@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"strings"
@@ -10,21 +9,15 @@ import (
 )
 
 func main() {
+	file, err := os.Open("test.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	var text string
-	var bs []string
-	var output []string
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		text = scanner.Text()
-		bs = strings.Split(text, " ")
-		for _, v := range bs {
-			output = append(output, v)
-		}
-	}
-	list := goniq.Uniq(output)
-	for _, v := range list {
-		fmt.Printf("%v \n", v)
-	}
+	fileList := goniq.Uniq(file)
+
+	list := goniq.Uniq(strings.NewReader("test,test2,test3,test2"))
+	fmt.Println(list)
+	fmt.Println(fileList)
 
 }
