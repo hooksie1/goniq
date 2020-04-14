@@ -1,4 +1,4 @@
-= Goniq
+# Goniq
 
 Goniq is a very simple package to remove duplicates.
 
