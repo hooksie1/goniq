@@ -1,0 +1,11 @@
+steps:
+  - name: goreleaser
+    when:
+      branch: main
+      event: tag
+    image: goreleaser/goreleaser
+    commands:
+      - goreleaser release --clean -f ./cmd/.goreleaser.yaml
+    environment:
+      GITHUB_TOKEN:
+        from_secret: github_token

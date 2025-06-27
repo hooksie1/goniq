@@ -1,10 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
-	"flag"
-	
+
 	"gitlab.com/hooksie1/goniq"
 )
 
@@ -15,18 +15,17 @@ func init() {
 }
 
 func main() {
-
 	flag.Parse()
 
-		file, err := os.Open(file)
-		if err != nil {
-			fmt.Println(err)
-		}
+	file, err := os.Open(file)
+	if err != nil {
+		fmt.Println(err)
+	}
 
-		list := goniq.Uniq(file)
+	list := goniq.Uniq(file)
 
-		for _, v := range list {
-			fmt.Printf("%v \n", v)
-		}
+	for _, v := range list {
+		fmt.Printf("%v \n", v)
+	}
 
 }
