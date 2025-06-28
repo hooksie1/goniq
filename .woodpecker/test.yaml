@@ -22,4 +22,7 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
-         build {{build.link}} ${CI_PREV_PIPELINE_STATUS}. 
+        Build {{build.number}} of {{repo.name}} finished with a status of ${CI_PREV_PIPELINE_STATUS}. \n\n
+        Commit by {{commit.author}} on {{commit.branch}}: \n
+        ``` {{commit.message}} ```\n
+        {{build.link}}
