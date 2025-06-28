@@ -16,8 +16,9 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
+        {{build.link}}
         {{#success build.status}}
-          build {{build.number}} succeeded.
+          {{repo.name}}: build {{build.number}} succeeded.
         {{else}}
-          build {{build.number}} failed.
+          {{repo.name}}: build {{build.number}} failed.
         {{/success}}
