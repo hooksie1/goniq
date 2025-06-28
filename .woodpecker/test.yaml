@@ -6,6 +6,12 @@ steps:
     commands:
       - export PATH=$PATH:/root/go/bin
       - make test
+  - name: failure
+    when:
+      event: push
+    image: ubuntu
+    commands:
+      - exit 1
   - name: test notification
     when:
       - status: [ success, failure ]
