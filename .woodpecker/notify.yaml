@@ -8,4 +8,4 @@ steps:
         from_secret: bot_token
       to: 
         from_secret: telegram_user
-    depends_on: [ test, goreleaser ]
+depends_on: [ test, goreleaser ]
