@@ -15,6 +15,7 @@ func init() {
 }
 
 func main() {
+	// parse flags
 	flag.Parse()
 
 	file, err := os.Open(file)
