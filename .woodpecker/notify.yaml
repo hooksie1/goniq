@@ -1,7 +1,9 @@
 steps:
   - name: notify
     when:
-      event: [ push, tag ]
+      event: 
+        - push
+        - tag
       status: [ success, failure ]
     image: appleboy/drone-telegram
     settings:
