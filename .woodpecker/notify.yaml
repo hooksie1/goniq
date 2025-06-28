@@ -1,7 +1,5 @@
 steps:
   - name: send telegram notification
-    when:
-      event: push
     image: appleboy/drone-telegram
     settings:
       token: 
