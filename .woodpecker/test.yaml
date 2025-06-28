@@ -12,11 +12,6 @@ steps:
     image: ubuntu
     commands:
       - exit 1
-  - name: echo
-    when:
-      event: push
-    image: ubuntu
-
   - name: test notification
     when:
       - status: [ failure ]
@@ -27,4 +22,4 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
-         build {{build.link}} $${CI_PREV_PIPELINE_STATUS }. 
+         build {{build.link}} ${CI_PREV_PIPELINE_STATUS}. 
