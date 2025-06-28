@@ -10,12 +10,12 @@ steps:
     when:
       event: push
     image: appleboy/drone-telegram
-    settings:
-      token: 
+    environment:
+      PLUGIN_TOKEN: 
         from_secret: bot_token
-      to: 
+      PLUGIN_TO: 
         from_secret: telegram_user
-      message: >
+      PLUGIN_MESSAGE: >
         {{#success build.status}}
           build {{build.number}} succeeded. Good job.
         {{else}}
