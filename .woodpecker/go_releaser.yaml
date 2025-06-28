@@ -18,4 +18,9 @@ steps:
         from_secret: bot_token
       to: 
         from_secret: telegram_user
+      message: >
+        Build {{build.number}} of {{repo.name}} finished with a status of ${CI_PREV_PIPELINE_STATUS}.
+        Commit by {{commit.author}} on {{commit.branch}}:
+        ``` {{commit.message}} ```
+        {{build.link}}
 depends_on: [ test ]

@@ -6,15 +6,9 @@ steps:
     commands:
       - export PATH=$PATH:/root/go/bin
       - make test
-  - name: failure
-    when:
-      event: push
-    image: ubuntu
-    commands:
-      - exit 1
   - name: test notification
     when:
-      - status: [ failure ]
+      - status: [ success, failure ]
     image: appleboy/drone-telegram
     settings:
       token: 
@@ -23,9 +17,6 @@ steps:
         from_secret: telegram_user
       message: >
         Build {{build.number}} of {{repo.name}} finished with a status of ${CI_PREV_PIPELINE_STATUS}.
-        
         Commit by {{commit.author}} on {{commit.branch}}:
-        
         ``` {{commit.message}} ```
-        
         {{build.link}}
