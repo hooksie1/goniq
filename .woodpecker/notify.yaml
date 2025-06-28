@@ -11,3 +11,5 @@ steps:
 depends_on:
   - test
   - release
+
+runs_on: [ success, failure ]
