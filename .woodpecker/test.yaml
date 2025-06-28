@@ -20,7 +20,7 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
-        Build {{build.number}} of {{repo.name}} finished with a status of {{build.status}}.
+        Build {{build.number}} of {{repo.name}} finished with a status of ${WOODPECKER_BUILD_STATUS}.
         Commit by {{commit.author}} on {{commit.branch}}:
         ``` {{commit.message}} ```
         {{build.link}}
