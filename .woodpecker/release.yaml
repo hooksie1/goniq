@@ -17,7 +17,7 @@ steps:
       GITHUB_TOKEN:
         from_secret: github_token
     depends_on: [ test ]
-  - name: send telegram notification
+  - name: notify
     when:
       status: [ success, failure ]
     image: appleboy/drone-telegram
