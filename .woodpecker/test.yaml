@@ -20,7 +20,7 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
-        Build {{build.number}} of {{repo.name}} finished with a status of ${DRONE_BUILD_STATUS}.
+        Build {{build.number}} of {{repo.name}} finished with a status of ${CI_PIPELINE_STATUS}.
         Commit by {{commit.author}} on {{commit.branch}}:
         ``` {{commit.message}} ```
         {{build.link}}
