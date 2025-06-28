@@ -6,3 +6,12 @@ steps:
     commands:
       - export PATH=$PATH:/root/go/bin
       - make test
+  - name: test notification
+    when:
+      - status: [ success, failure ]
+    image: appleboy/drone-telegram
+    settings:
+      token: 
+        from_secret: bot_token
+      to: 
+        from_secret: telegram_user
