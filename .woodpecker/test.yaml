@@ -15,10 +15,3 @@ steps:
         from_secret: bot_token
       to: 
         from_secret: telegram_user
-      message: >
-        {{build.link}}
-        {{#success build.status}}
-          {{repo.name}}: build {{build.number}} succeeded.
-        {{else}}
-          {{repo.name}}: build {{build.number}} failed.
-        {{/success}}
