@@ -1,0 +1,23 @@
+steps:
+  - name: test
+    when:
+      event: push
+    image: cgr.dev/chainguard/go:latest
+    commands:
+      - export PATH=$PATH:/root/go/bin
+      - make test
+  - name: send telegram notification
+    when:
+      event: push
+    image: appleboy/drone-telegram
+    settings:
+      token: 
+        from_secret: bot_token
+      to: 
+        from_secret: telegram_user
+      message: >
+        {{#success build.status}}
+          build {{build.number}} succeeded. Good job.
+        {{else}}
+          build {{build.number}} failed. Fix me please.
+        {{/success}}

@@ -11,10 +11,10 @@ lint: ## Lint the files
 	@golint -set_exit_status $(PKG)
 
 test: ## Run unittests
-	@go test $(PKG)
+	@go test ./...
 
 coverage:
-	@go test -cover $(PKG)
+	@go test -cover ./...
 	@go test -coverprofile=cover.out && go tool cover -html=cover.out -o coverage.html
 
 dep: ## Get the dependencies
