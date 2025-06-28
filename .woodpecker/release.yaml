@@ -16,6 +16,7 @@ steps:
     environment:
       GITHUB_TOKEN:
         from_secret: github_token
+    depends_on: [ test ]
   - name: send telegram notification
     when:
       status: [ success, failure ]
@@ -25,3 +26,4 @@ steps:
         from_secret: bot_token
       to: 
         from_secret: telegram_user
+    depends_on: [ test, goreleaser ]
