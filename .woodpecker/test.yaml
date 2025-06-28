@@ -6,6 +6,10 @@ steps:
     commands:
       - export PATH=$PATH:/root/go/bin
       - make test
+  - name: fail
+    image: ubuntu
+    commands:
+      - exit 1
   - name: test notification
     when:
       - status: [ success, failure ]
@@ -16,7 +20,7 @@ steps:
       to: 
         from_secret: telegram_user
       message: >
-        Build {{build.number}} of {{repo.name}} finished with a status of ${CI_PREV_PIPELINE_STATUS}.
+        Build {{build.number}} of {{repo.name}} finished with a status of {{build.status}}.
         Commit by {{commit.author}} on {{commit.branch}}:
         ``` {{commit.message}} ```
         {{build.link}}
