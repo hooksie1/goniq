@@ -21,8 +21,8 @@ steps:
         from_secret: telegram_user
       format: Markdown
       message: >
+        hey ${CI_PIPELINE_STATUS}
         Build {{build.number}} of {{repo.name}} finished with a status of {{build.status}}.
-        ${CI_BUILD_STATUS}
         Commit by {{commit.author}} on {{commit.branch}}:
         ``` {{commit.message}} ```
         {{build.link}}
