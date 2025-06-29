@@ -10,6 +10,10 @@ steps:
     image: ubuntu
     commands:
       - exit 1
+  - name: print
+    image: ubuntu
+    commands:
+      - echo ${CI_PIPELINE_STATUS}
   - name: test notification
     when:
       - status: [ success, failure ]
