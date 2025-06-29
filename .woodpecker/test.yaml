@@ -11,6 +11,8 @@ steps:
     commands:
       - exit 1
   - name: print
+    when:
+      - status: [ success, failure ]
     image: ubuntu
     commands:
       - echo ${CI_PIPELINE_STATUS}
