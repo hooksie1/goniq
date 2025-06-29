@@ -13,7 +13,7 @@ steps:
   - name: test notification
     when:
       - status: [ success, failure ]
-    image: appleboy/drone-telegram
+    image: appleboy/drone-telegram:1.4
     settings:
       token: 
         from_secret: bot_token
